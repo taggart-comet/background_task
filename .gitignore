@@ -1,4 +1,4 @@
-!lockfiles/.gitkeep
 lockfiles/*
+!lockfiles/.gitkeep
 __pycache__/
 .idea/
