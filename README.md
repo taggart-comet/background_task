@@ -1,5 +1,10 @@
 **_Light, high-load ready, handy background-task module for Django._**
 
+`Django 3 \ Python 3 \ Mysql` _(can probably work with older Django and Postgres)_
+
+Scalable. Writes logs in MySQL, with rotation and handy access to display in an admin area.
+Easy to attach statistics and set triggers on queue overflow.
+
 ##### Use case #1:
 >I need to send emails to my users asynchronously.
 
@@ -71,3 +76,5 @@ def send_email_code(request):
     return ApiResponse.ok()
 
 ```
+
+Lots of customizations available, well documented in `interface.py`
