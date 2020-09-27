@@ -14,15 +14,12 @@ RUN_SCRIPT_PATH = SCRIPT_PATH + " background_task_run"
 # run script
 CRONTAB_SH_PATH = os.path.dirname(os.path.abspath(__file__)) + "/crontab.sh"
 CRONTAB_RUN = "* * * * * /bin/sh " + CRONTAB_SH_PATH + " >/dev/null 2>&1"
-CRONTAB_CHECK_RUN_PATTERN = ""
 
 # logrotate
 CRONTAB_LOGROTATE = "0 3 * * * " + SCRIPT_PATH + " background_task_monitor --logrotate"
-CRONTAB_CHECK_LOGROTATE_PATTERN = ""
 
 # queue check
 CRONTAB_QUEUE_CHECK = "*/15 * * * * " + SCRIPT_PATH + " background_task_monitor --check"
-CRONTAB_CHECK_QUEUE_CHECK_PATTERN = ""
 
 
 def get_task_class_list():
