@@ -5,7 +5,7 @@
 Scalable. Writes logs in MySQL, with rotation and handy access for displaying in an admin area.
 Easy to attach statistics and set triggers on queue overflow.
 
-##### Use case #1:
+#### Use case #1:
 >I need to send emails to my users asynchronously.
 
 `Step #1`: Write a task class:
