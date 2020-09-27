@@ -1,16 +1,16 @@
-**_Light, high-load ready, handy background-task module for Django._**
+# Light, high-load ready, handy background-task module for Django.
 
 `Django 3 \ Python 3 \ Mysql` _(can probably work with older Django and Postgres)_
 
-Scalable. Writes logs in MySQL, with rotation and handy access to display in an admin area.
+Scalable. Writes logs in MySQL, with rotation and handy access for displaying in an admin area.
 Easy to attach statistics and set triggers on queue overflow.
 
 ##### Use case #1:
 >I need to send emails to my users asynchronously.
 
-STEP 1: Write a task class:
+`Step #1`: Write a task class:
 >Wherever in your code you feel is right, create a class:
-```
+```python
 from BackgroundTask.interface import BackgroundTaskInterface
 from django.core.mail import BadHeaderError, send_mail
 
@@ -34,33 +34,31 @@ class QueueSendEmail(BackgroundTaskInterface):
 
 ```
 
-STEP 2: Add this class to settings.py:
-```
+`Step #2`: Add this class to settings.py:
+```python
 BACKGROUND_TASK_CLASSES = [
     'mypath.QueueSendEmail'
 ]
 ```
 
-STEP 3: Create tables for queues and logs:
-```
+`Step #3`: Create tables for queues and logs:
+```python
 ./manage.py background_task --migrate
 ```
 
-STEP 4: Launch the queue:
-```
+`Step #4`: Launch the queue:
+```python
 ./manage.py background_task --activate
 ```
 
-STEP 5: Add tasks to the queue
-```
+`Step #5`: Add tasks to the queue
+```python
 from ApiHandler.response import ApiResponse
 from django.views.decorators.http import require_POST
 from mypath.email import QueueSendEmail
 
 @require_POST
 def send_email_code(request):
-
-    email = PostDataValidator.email(request.post_data, 'email')
 
     # ...
 
