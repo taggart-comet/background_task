@@ -1,11 +1,12 @@
-import os, time
+import os
+import time
 import traceback
 from sys import executable
 from django.conf import settings
 from django.db import models
 from django.forms.models import model_to_dict
 from django.utils.module_loading import import_string
-from abc import ABC, abstractmethod
+from abc import abstractmethod
 from BackgroundTask.logger import BackgroundTaskLogger
 
 SCRIPT_PATH = executable + " " + str(settings.BASE_DIR) + "/manage.py"
@@ -63,7 +64,7 @@ used in BackgroundTaskRunner
 """
 
 
-class BackgroundTaskHandler(ABC):
+class BackgroundTaskHandler:
     # --------------------------------------------------
     # USER SETTINGS
     # --------------------------------------------------
